@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Logs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="logs.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/home.html" id="navbar__logo">FitTrack</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/logs.html" class="navbar__links">Logs</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/about.html" class="navbar__links">About</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/signin.html" class="button">Sign in</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Workout Logs Section -->
+    <div class="create_dropdown_item" id="workoutLogsDropdown" style="display: block;">
+        <table id="workoutLogTable" class="workout-log-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Workout Name</th>
+                    <th>Rating</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="workoutLogList">
+                <!-- Workout logs will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module">
+        // Example workout logs data (replace with your actual data)
+        import { auth, db } from './firebase.js';
+import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
+
+async function fetchWorkoutLogs(user) {
+    if (!user) {
+        alert('You must be signed in to view your workout logs.');
+        return;
+    }
+
+    try {
+        // Reference to the user's workouts collection
+        const workoutLogsRef = collection(db, `users/${user.uid}/workouts`);
+        const querySnapshot = await getDocs(workoutLogsRef);
+
+        // Get the table body element
+        const logList = document.getElementById('workoutLogList');
+        logList.innerHTML = ''; // Clear existing logs
+
+        // Iterate through the documents in the collection
+        querySnapshot.forEach((doc) => {
+            const log = doc.data();
+
+            // Create a new row for each workout log
+            const row = document.createElement('tr');
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = new Date(log.date).toLocaleDateString(); // Format the date
+            row.appendChild(dateCell);
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = log.name || 'N/A'; // Fallback if name is missing
+            row.appendChild(nameCell);
+
+            const ratingCell = document.createElement('td');
+            ratingCell.textContent = log.rating || 'N/A'; // Fallback if rating is missing
+            row.appendChild(ratingCell);
+
+            const notesCell = document.createElement('td');
+            notesCell.textContent = log.notes || 'N/A'; // Fallback if notes are missing
+            row.appendChild(notesCell);
+
+            logList.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error fetching workout logs:', error);
+        alert('Failed to fetch workout logs. Please try again later.');
+    }
+}
+
+// Automatically fetch workout logs when the page loads
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        fetchWorkoutLogs(user);
+    } else {
+        alert('You must be signed in to view your workout logs.');
+        window.location.href = 'signin.html';
+    }
+});
+
+        // Populate the workout logs on page load
+        window.onload = fetchWorkoutLogs; // Call the function that fetches workout logs
+    </script>
+        <div id="calendar" class="calendar"></div>
+
+        <script type="module">
+            import { auth, db } from './firebase.js';
+import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js';
+
+            function createCalendar(dateStrings) {
+    // Get the current date
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth(); // 0-based index
+
+    // Create a Date object for the first day of the month
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0); // Last day of the month
+
+    // Get the day of the week for the first day (0 = Sunday, 6 = Saturday)
+    const startDay = firstDay.getDay();
+
+    // Get the total number of days in the month
+    const totalDays = lastDay.getDate();
+
+    // Get the calendar container
+    const calendar = document.getElementById('calendar');
+    calendar.innerHTML = '';
+
+    // Add day headers
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    daysOfWeek.forEach(day => {
+        const header = document.createElement('div');
+        header.classList.add('day', 'header');
+        header.textContent = day;
+        calendar.appendChild(header);
+    });
+
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < startDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.classList.add('day');
+        calendar.appendChild(emptyCell);
+    }
+
+    // Add cells for each day of the month
+    for (let i = 1; i <= totalDays; i++) {
+        const dayCell = document.createElement('div');
+        dayCell.classList.add('day');
+        dayCell.textContent = i;
+
+        // Format the current day as YYYY-MM-DD
+        const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+
+        // Highlight the specific day if it matches any date in the input list
+        if (dateStrings.includes(formattedDate)) {
+            dayCell.classList.add('highlight');
+        }
+
+        calendar.appendChild(dayCell);
+    }
+}
+
+async function fetchWorkoutDatesForCurrentMonth(user) {
+    if (!user) {
+        alert('You must be signed in to view your workout logs.');
+        return;
+    }
+
+    try {
+        // Reference to the user's workouts collection
+        const workoutLogsRef = collection(db, `users/${user.uid}/workouts`);
+        const querySnapshot = await getDocs(workoutLogsRef);
+
+        // Get the current year and month
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth() + 1; // Months are 0-based, so add 1
+
+        // Extract workout dates for the current month
+        const workoutDates = [];
+        querySnapshot.forEach((doc) => {
+            const log = doc.data();
+            if (log.date) {
+                // Handle Firestore Timestamp or string date
+                const date = log.date.toDate ? log.date.toDate() : new Date(log.date);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1; // Months are 0-based, so add 1
+
+                // Check if the workout is in the current month
+                if (year === currentYear && month === currentMonth) {
+                    const formattedDate = date.toISOString().slice(0, 10); // Format as YYYY-MM-DD
+                    workoutDates.push(formattedDate);
+                }
+            }
+        });
+
+        console.log('Workout Dates for Current Month:', workoutDates);
+        return workoutDates; // Return the list of dates
+    } catch (error) {
+        console.error('Error fetching workout dates:', error);
+        alert('Failed to fetch workout dates. Please try again later.');
+        return [];
+    }
+}
+    
+auth.onAuthStateChanged(async (user) => {
+    if (user) {
+        const workoutDates = await fetchWorkoutDatesForCurrentMonth(user);
+        createCalendar(workoutDates); // Pass the dates to the calendar function
+    } else {
+        alert('You must be signed in to view your workout logs.');
+        window.location.href = 'signin.html';
+    }
+});
+        </script>
+</body>
+</html>

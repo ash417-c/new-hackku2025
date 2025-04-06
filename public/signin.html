@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="styles_signin.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+        <a href="/home.html" id="navbar__logo">FitTrack</a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="/index.html" class="navbar__links">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/logs.html" class="navbar__links">Logs</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/about.html" class="navbar__links">About</a>
+            </li>
+            <li class="navbar__btn">
+                <a href="/signin.html" class="button">Sign in</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- user panel -->
+  <div id="user-panel" class="center-box-container">
+    <h2>Welcome!</h2>
+    <p id="user-name"class="text-box">Name: Guest</p>
+    <p id="user-email"class="text-box">Email: Not logged in</p>
+  </div>
+  
+  
+
+  <!-- SIGN UP MODAL -->
+  <div id="signin" class="modal">
+    <div class="modal-content">
+      <form id="signup-form">
+        <div class="group">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="group">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div id="signin-confirm" class="confirm"> </div>
+
+        <button id="btnSignup" class="button buttonBlue">Sign up</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div id="login" class="modal">
+    <div class="modal-content">
+      <form id="login-form">
+        <div class="group">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="group">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Choose password</label>
+        </div>
+        <div id="login-confirm" class="confirm"> </div>
+
+        <button id="btnLogin" class="button buttonBlue">Log in</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app">
+    <form>
+      <div class="group">
+        <div id="lblAuthState" class="authlabel"></div>
+      </div>
+      <div id="logout-confirm" class="confirm"> </div>
+      <button id="btnLogout" type="button" class="button buttonBlue">Log out</button>
+    </form>
+  </div>
+  
+  <script type="module" src="auth.js"></script>
+</body>
+
+</html>

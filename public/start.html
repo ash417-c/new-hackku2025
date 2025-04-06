@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Worko Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="start.css">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.6.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.6.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.6.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.6.0/firebase-firestore-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+          <a href="/home.html" id="navbar__logo">FitTrack</a>
+          <div class="navbar__toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+          <ul class="navbar__menu">
+              <li class="navbar__item">
+                  <a href="/index.html" class="navbar__links">Home</a>
+              </li>
+              <li class="navbar__item">
+                  <a href="/logs.html" class="navbar__links">Logs</a>
+              </li>
+              <li class="navbar__item">
+                  <a href="/about.html" class="navbar__links">About</a>
+              </li>
+              <li class="navbar__btn">
+                  <a href="/signin.html" class="button">Sign in</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  <div class="container">
+    <h1 id="workoutName">Workout Name</h1> <!-- Workout name will be dynamically updated -->
+
+    <div id="exerciseList">
+      <!-- List of exercises will be dynamically added here -->
+    </div>
+
+    <button id="startWorkoutButton" class="start_workout_button">Timer</button>
+
+    <div class="rating_notes_section">
+      <h2>Rating</h2>
+      <input type="number" id="rating" min="1" max="5" placeholder="Rate your workout (1-5)">
+      <h2>Notes</h2>
+      <textarea id="notes" rows="4" cols="50" placeholder="Add your notes here..." style="width: 100%;"></textarea>
+      <button id="saveWorkoutButton" class="save_workout_button"onclick="saveWorkout()">Save Workout</button>
+    </div>
+    <a href="index.html" id="finishWorkoutButton" class="finish_workout_button">Finish Workout</a>
+
+  </div>
+      
+  <script src="start.js" type="module"></script> <!-- Link to your JavaScript file -->
+  </div>
+    
+  </body>
+</html>

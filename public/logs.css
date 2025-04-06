@@ -1,0 +1,90 @@
+/* Workout Logs Table */
+.workout-log-table {
+    width: 90%; /* Increase the table width */
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;
+    font-size: 18px; /* Increase font size for better readability */
+    text-align: left;
+    background-color: #1e1e1e; /* Dark background for the table */
+    color: #ffffff; /* Light text for contrast */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.workout-log-table th, .workout-log-table td {
+    padding: 15px 20px; /* Increase padding for larger cells */
+    border: 1px solid #333; /* Subtle border for table cells */
+}
+
+.workout-log-table th {
+    background-color: #ff7062; /* Primary color for table headers */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.workout-log-table tr:nth-child(odd) {
+    background-color: #1a1a1a; /* Dark background for table cells */
+    color: lightgray;
+}
+.workout-log-table tr:nth-child(even) {
+    background-color: #2a2a2a; /* Alternate row color for better readability */
+    color:lightgray;
+}
+
+.workout-log-table tr:hover {
+    background-color: #ff7062; /* Highlight row on hover */
+    color: white;
+}
+
+.delete-log-button {
+    background-color: #ff7062;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-log-button:hover {
+    background-color: #e65b50;
+}
+
+/* Calendar */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    gap: 10px; /* Increase the gap between cells */
+    max-width: 600px; /* Increase the width of the calendar */
+    margin: 20px 0;
+    background-color: #1e1e1e;
+    padding: 20px; /* Increase padding for a larger calendar */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 20px;
+    top: 80px;
+}
+
+.day {
+    border: 1px solid #333;
+    padding: 15px; /* Increase padding for larger cells */
+    text-align: center;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px; /* Increase font size for better readability */
+}
+
+.highlight {
+    background-color: #ff7062;
+    color: white;
+}
+
+.header {
+    font-weight: bold;
+    background-color: #ff7062;
+    color: white;
+    font-size: 18px; /* Increase font size for headers */
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Worko</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.6.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.6.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.6.0/firebase-database-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <style>
+        .about-container {
+          max-width: 800px;
+          margin: 50px auto;
+          padding: 20px;
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          border-radius: 10px;
+          box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .about-container h1 {
+          font-size: 2em;
+          margin-bottom: 15px;
+          color: #333;
+        }
+        .about-container p {
+          line-height: 1.6;
+          color: #555;
+        }
+        .about-container strong {
+          color: #000;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+          <a href="/home.html" id="navbar__logo">FitTrack</a>
+          <div class="navbar__toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+          <ul class="navbar__menu">
+              <li class="navbar__item">
+                  <a href="/index.html" class="navbar__links">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/logs.html" class="navbar__links">Logs</a>
+              </li>
+              <li class="navbar__item">
+                  <a href="/about.html" class="navbar__links">About</a>
+              </li>
+              <li class="navbar__btn">
+                  <a href="/signin.html" class="button">Sign in</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+  
+  <div class="about-container">
+    <h1>About FitTrack</h1>
+    <p><strong>FitTrack</strong> is a lightweight, intuitive workout tracking web app built during a 36-hour hackathon. It helps users log their workouts, track progress, and stay motivated on their fitness journey.</p>
+    
+    <p>Our goal was to create a simple and accessible tool for anyone — whether you're a beginner or a gym veteran — to track your workouts without distractions or unnecessary complexity.</p>
+    
+    <p>The app is built using <strong>HTML, CSS, JavaScript, and Firebase</strong> for real-time authentication and data storage. </p>
+
+    <p>This project was developed by two passionate students who love tech and lifting — and wanted to combine the two.</p>
+
+    <p>Thank you for checking it out!</p>
+  </div>
+    
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
+  </body>
+</html>

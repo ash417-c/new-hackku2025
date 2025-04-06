@@ -1,0 +1,374 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+}
+
+.body {
+    background-color: #131313;
+}
+
+
+.navbar {
+    background: #131313;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.fa-gem {
+    margin-right: 0.5rem;
+}
+
+.navbar__menu {
+    /*opacity: 0;*/
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    color: #fff;
+}
+
+.button:hover {
+    background: #4837ff;
+    transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+    color: #f77062;
+    transition: all 0.3s ease;
+}
+
+.subsection_button{
+    background: black;
+    width: 35%;
+    flex: 1;
+    margin: 0 10px;
+    margin-bottom: 10%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+/* .subsection_button_right{
+    background: black;
+    margin-left: 10px;
+    top: 80px;
+    right: 10px;
+    width: 35%;
+    flex: 1;
+    margin: 0 10px;
+    margin-bottom: 20%;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+} */
+.subsection_button.expanded{
+    width: 300px;
+    padding: 20px;
+}
+.workout_buttons_container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.workout_button{
+    color: #f77062;
+    width: 75%;
+    height: 100px;
+    padding: 10px;
+    font-size: 50px;
+    background-color: #f77062;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.create_dropdown_item{
+    display: center;
+    position: absolute;
+    padding: 10px;
+    margin-top: 10px;
+    z-index: 1;
+    background-color: #3e3e3e;
+    color: white;
+}
+.create_dropdown_item a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+
+#workoutList {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+#workoutList li {
+padding: 5px 0;
+cursor: pointer;
+}
+
+#workoutList li:hover {
+background-color: #f0f0f0;
+color :#131313
+}
+#startWorkoutList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#startWorkoutList li {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+#startWorkoutList li:hover {
+    background-color: #f0f0f0;
+}
+
+.add_workout_button {
+    background-color: #f77062;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 10px;
+    font-size: 16px;
+}
+.note_selection{
+    position: absolute;
+    top:100px;
+    right:10px;
+    background: black;
+    color: #ff7062;
+    width: 35%;
+    flex: 1;
+    margin: 0 10px;
+    margin-bottom: 10%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+#startWorkoutList a {
+    color: white;
+    text-decoration: none;
+}
+#startWorkoutList a:hover {
+    color:#f0f0f0;
+    text-decoration: underline;
+}
+.workout_logs {
+    background: black;
+    width: 35%;
+    flex: 1;
+    margin: 0 10px;
+    margin-bottom: 10%;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+/* Style for the workout logs dropdown */
+#create_dropdown_item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .workout-log-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .workout-log-item h3 {
+    margin: 0 0 10px;
+  }
+  
+  .workout-log-item p {
+    margin: 5px 0;
+  }
+  
+  .workout-log-item ul {
+    margin: 10px 0 0;
+    padding-left: 20px;
+  }
+  
+  .delete-log-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .delete-log-button:hover {
+    background-color: #e60000;
+  }
+  #workoutLogList {
+    color: black;
+  }
+
+
+.center-box-container {
+display: flex;
+flex-direction: column;
+gap: 20px;
+width: 100%;
+max-width: 400px;
+}
+
+.text-box {
+background-color: #ffffff;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+
+.text-box h2 {
+margin: 0 0 10px;
+font-size: 1.5em;
+color: #333;
+}
+
+.text-box p {
+margin: 0;
+color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar__menu.active {
+        display: flex;
+    }
+
+    .navbar__item {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .navbar__toggle {
+        display: flex;
+    }
+}
+
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar__toggle .bar {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+}
