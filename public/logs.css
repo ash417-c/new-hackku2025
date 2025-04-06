@@ -1,6 +1,6 @@
 /* Workout Logs Table */
 .workout-log-table {
-    width: 90%; /* Increase the table width */
+    width: 80%; /* Increase the table width */
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;
     font-size: 18px; /* Increase font size for better readability */
@@ -13,7 +13,7 @@
 }
 
 .workout-log-table th, .workout-log-table td {
-    padding: 15px 20px; /* Increase padding for larger cells */
+    padding: 8px; /* Increase padding for larger cells */
     border: 1px solid #333; /* Subtle border for table cells */
 }
 
@@ -37,7 +37,7 @@
     color: white;
 }
 
-.delete-log-button {
+/* .delete-log-button {
     background-color: #ff7062;
     color: white;
     border: none;
@@ -50,7 +50,7 @@
 
 .delete-log-button:hover {
     background-color: #e65b50;
-}
+} */
 
 /* Calendar */
 .calendar {
@@ -88,3 +88,40 @@
     color: white;
     font-size: 18px; /* Increase font size for headers */
 }
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #3e3e3e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color:white;
+    position: absoulte;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    left: -0%;
+  }
+  
+  #calendar .day {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #222;
+    color:white
+  }
+  
+  #calendar .day.header {
+    font-weight: bold;
+    background-color: #f77062;
+  }
+  
+  #calendar .day.highlight {
+    background-color: #cb4d3f;
+    color: white;
+    font-weight: bold;
+  }
