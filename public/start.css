@@ -134,3 +134,54 @@ button:hover {
 #finishWorkoutButton:hover {
     background-color: #c82333; /* Darker red on hover */
 }
+.timer_section {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #3e3e3e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timer_controls {
+    margin-bottom: 15px;
+  }
+  
+  .timer_controls label {
+    margin: 0 5px;
+    font-size: 16px;
+  }
+  
+  .timer_controls input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .timer_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .timer_button:hover {
+    background-color: #0056b3;
+  }
+  
+  .timer_display {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+  }

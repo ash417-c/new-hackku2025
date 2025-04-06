@@ -54,36 +54,52 @@
       </div>
   </nav>
   <div class="subsection_button" id="">
-    <button class="workout_button" onclick="toggleDropdown()">Create Workout</button>
+    <button class="workout_button" onclick="toggleDropdown()"><h1>Create Workout</h1></button>
     <div class="create_dropdown_item" id="dropdownMenu" style="display: none;">
       <form id="workoutForm">
-        <label for="workoutName">Workout Name:</label>
-        <input type="text" id="workoutName" name="workoutName" placeholder="e.g., Leg Day" required>
-        <br>
-        <label for="numExercises">Number of Exercises:</label>
-        <input type="number" id="numExercises" name="numExercises" min="1" placeholder="e.g., 3" required>
-        <button type="button" onclick="generateExerciseInputs()">Generate Exercises</button>
-        <div id="exerciseInputsContainer"></div>
-        <!-- Add Workout Button -->
-        <button type="button" id="add_workout_button" class="add_workout_button" style="display: none;" onclick="addWorkoutToStart()">Add Workout</button>
+        <table class="dropdown-table">
+          <tr>
+            <td><label for="workoutName">Workout Name:</label></td>
+            <td><input type="text" id="workoutName" name="workoutName" placeholder="e.g., Leg Day" required></td>
+          </tr>
+          <tr>
+            <td><label for="numExercises">Number of Exercises:</label></td>
+            <td><input type="number" id="numExercises" name="numExercises" min="1" placeholder="e.g., 3" required></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="button" onclick="generateExerciseInputs()">Generate Exercises</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div id="exerciseInputsContainer"></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="button" id="add_workout_button" class="add_workout_button" style="display: none;" onclick="addWorkoutToStart()">Add Workout</button>
+            </td>
+          </tr>
+        </table>
       </form>
     </div>
   </div>
-  <!-- <div class="subsection_button" id="">
-    <button class="workout_button" onclick="togglePreExistingDropdown()">Preview Workouts</button>
-    <div class="create_dropdown_item" id="preExistingDropdown" style="display: none;">
-      <ul id="workoutList" style="list-style-type: none; padding: 0;">">
-
-        
-      </ul>
-    </div>
-  </div> -->
+  
   <div class="subsection_button" id="">
-    <button class="workout_button" onclick="toggleStartDropdown()">Start Workout</button>
+    <button class="workout_button" onclick="toggleStartDropdown()"><h1>Start Workout</h1></button>
     <div class="create_dropdown_item" id="startDropdown" style="display: none;">
-      <ul id="startWorkoutList" style="list-style-type: none; padding: 0;">
-        <!-- Workouts will be dynamically added here -->
-      </ul>
+      <table class="dropdown-table">
+        <thead>
+          <tr>
+            <th>Workout Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="startWorkoutList">
+          <!-- Workouts will be dynamically added here -->
+        </tbody>
+      </table>
     </div>
   </div>
 

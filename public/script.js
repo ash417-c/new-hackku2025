@@ -28,6 +28,7 @@ function generateExerciseInputs() {
       exerciseDiv.classList.add('exercise-input');
   
       exerciseDiv.innerHTML = `
+        <br>
         <h4>Exercise ${i + 1}</h4>
         <label for="exerciseName${i}">Exercise Name:</label>
         <input type="text" id="exerciseName${i}" name="exerciseName${i}" placeholder="e.g., Bench Press" required>

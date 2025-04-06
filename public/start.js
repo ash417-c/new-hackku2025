@@ -120,5 +120,43 @@ function saveWorkout() {
 
   saveWorkoutDetails(user.uid, workoutId);
 }
+let timerInterval;
 
+document.getElementById('startTimerButton').addEventListener('click', () => {
+  const minutes = parseInt(document.getElementById('timerMinutes').value) || 0;
+  const seconds = parseInt(document.getElementById('timerSeconds').value) || 0;
+  let totalTime = minutes * 60 + seconds;
+
+  if (totalTime <= 0) {
+    alert('Please set a valid time!');
+    return;
+  }
+
+  clearInterval(timerInterval);
+  updateTimerDisplay(totalTime);
+
+  timerInterval = setInterval(() => {
+    totalTime--;
+    updateTimerDisplay(totalTime);
+
+    if (totalTime <= 0) {
+      clearInterval(timerInterval);
+      alert('Time is up!');
+    }
+  }, 1000);
+});
+
+document.getElementById('resetTimerButton').addEventListener('click', () => {
+  clearInterval(timerInterval);
+  document.getElementById('timerDisplay').textContent = '00:00';
+  document.getElementById('timerMinutes').value = '';
+  document.getElementById('timerSeconds').value = '';
+});
+
+function updateTimerDisplay(totalTime) {
+  const minutes = Math.floor(totalTime / 60);
+  const seconds = totalTime % 60;
+  document.getElementById('timerDisplay').textContent = 
+    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
 window.saveWorkout = saveWorkout;
